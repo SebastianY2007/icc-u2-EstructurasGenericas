@@ -5,16 +5,20 @@ import java.util.EmptyStackException;
 
 public class Stack {
     private Node top;
+    public int size;
 
     public Stack() {
         this.top = null;
+        this.size = 0;
     }
     
     // Metodo que ingrese un valor int
+    
     public void push(int value){
         Node newNode = new Node(value);
         newNode.setNext(top);
         top = newNode;
+        size++;
     }
 
     public int pop(){
@@ -23,6 +27,7 @@ public class Stack {
         }
         int value = top.getValue();
         top = top.getNext();
+        size--;
         return value;
     }
 
@@ -40,8 +45,9 @@ public class Stack {
     public void printStack(){
         Node current = top;
         while (current != null){
-            System.out.println(current.getValue());
+            System.out.println(current.getValue() + " ");
             current = current.getNext();
         }
+        System.out.println();
     }
 }
