@@ -57,5 +57,13 @@ public class App {
         System.out.println("Atiene a la persona => " + colaPersonas.remove());
         System.out.println(colaPersonas.size());
         colaPersonas.printCola();
+
+        colaPersonas.findByName("David");
+        Persona pEliminada = colaPersonas.removeByName("David");
+        if (pEliminada != null){
+            System.out.println("Se elimino a la persona: " + pEliminada.getNombre());
+        }else{
+            System.out.println("No se encontro una persona con ese nombre");
+        }
     }
 }
