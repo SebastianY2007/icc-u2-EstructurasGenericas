@@ -3,6 +3,8 @@ import Controllers.ColaG;
 import Controllers.Stack;
 import Controllers.StackG;
 import Models.Persona;
+import Ejercicio_01_sign.SignValidator;
+import Ejercicio_02_sorting.StackSorter;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -65,5 +67,28 @@ public class App {
         }else{
             System.out.println("No se encontro una persona con ese nombre");
         }
+
+        System.out.println("\n");
+        SignValidator signValidator = new SignValidator();
+        System.out.println(signValidator.esValido("([]){}"));  
+        System.out.println(signValidator.esValido("([)]"));    
+        System.out.println(signValidator.esValido("(())"));    
+        System.out.println(signValidator.esValido("{[]}"));    
+        System.out.println(signValidator.esValido("{[]})"));
+
+        System.out.println("\n");
+        Stack<Integer> pila = new Stack<>();
+        pila.push(5);
+        pila.push(1);
+        pila.push(4);
+        pila.push(2);
+        
+        System.out.println("Stack original:");
+        StackSorter.printStack(pila);
+        
+        StackSorter.orderarStack(pila);
+        
+        System.out.println("\nStack ordenado:");
+        StackSorter.printStack(pila);
     }
 }
